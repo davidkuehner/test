@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Valid message</title>
 
 	<?php echo link_tag('css/mystyle.css'); ?>
 	
@@ -64,86 +64,36 @@
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
-	
-	.message{
-		margin: 10px;
-		padding : 5px;
-	}
-	.standard{
-		border: 1px solid #D0D0D0;
-		background-color: #B2E6FF;
-	}
-	
-	.warning{
-		border: 1px solid #D0D0D0;
-		background-color: #FFFFA3;
-	}
-	
-	.error{
-		border: 1px solid #D0D0D0;
-		background-color: #FFAD85;
-	}
 	</style>
 	
 </head>
 <body>
 	<div id="container">
-		<h1>Welcome to CodeIgniter!</h1>
 
-		<div id="body">
-			<p>Test page.</p>
-			
-			<?php 
-			echo validation_errors();
+		<?php echo heading('The following message was successfully submitted !',1); ?>
 		
-			
-			echo form_open('welcome');
-			
-			$data = array(
-				'name' =>$username,
-				'type'=>'text',
-				'size' => '10',
-				'value' => 'username'
-				);
-			echo form_input($data);
+		<div id="body">
+
+			<?php 
+
+			echo "<p>";
+			echo 'by : '.$username;
 			echo br();
-			
-			$options = array(
-				'standard'=>'standard',
-				'warning'=>'warning',
-				'error'=>'error'
-				);
-			echo form_dropdown($message_type,$options,'standard');
+			echo 'type : '.$message_type;
 			echo br();
-			
-			echo form_textarea($message,'Message');
-			echo br();
-			
-			echo form_submit('submit','Post !');
-			
-			echo form_close();
-			
-			$messages = array_reverse($messages);
-			foreach($messages as $message) {
-				echo '<div class = "'.$message->message_type.' message">';
-				echo "<p>";
-				echo 'by : '.$message->username;
-				echo br();
-				echo 'type : '.$message->message_type;
-				echo br();
-				echo 'message : '.br().$message->message;
-				echo br(2);
-				echo anchor('welcome/delete/' . $message->id, 'Delete');
-				echo "</p>";
-				echo '</div>';
-			}
-			
+			echo 'message : '.br().$message;
+			echo "</p>";
+
+			echo "<p>";
+			echo anchor('welcome', 'Try it again!');
+			echo "</p>";
+						
 			?>
 			
 		</div>
-
+		
 		<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 	</div>
 
-</body>
+	</body>
 </html>
