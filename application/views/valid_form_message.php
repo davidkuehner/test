@@ -77,11 +77,11 @@
 			<?php 
 
 			echo "<p>";
-			echo 'by : '.$username;
+			echo 'by : ' . $username;
 			echo br();
-			echo 'type : '.$message_type;
+			echo 'type : ' . $message_type;
 			echo br();
-			echo 'message : '.br().$message;
+			echo 'message : ' . br() . $message;
 			echo "</p>";
 
 			echo "<p>";

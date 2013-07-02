@@ -103,7 +103,7 @@
 				'name' =>$username,
 				'type'=>'text',
 				'size' => '10',
-				'value' => 'username'
+				'value' => 'username',
 				);
 			echo form_input($data);
 			echo br();
@@ -111,27 +111,27 @@
 			$options = array(
 				'standard'=>'standard',
 				'warning'=>'warning',
-				'error'=>'error'
+				'error'=>'error',
 				);
-			echo form_dropdown($message_type,$options,'standard');
+			echo form_dropdown($message_type,$options, 'standard');
 			echo br();
 			
-			echo form_textarea($message,'Message');
+			echo form_textarea($message, 'Message');
 			echo br();
 			
-			echo form_submit('submit','Post !');
+			echo form_submit('submit', 'Post !');
 			
 			echo form_close();
 			
 			$messages = array_reverse($messages);
 			foreach($messages as $message) {
-				echo '<div class = "'.$message->message_type.' message">';
+				echo '<div class = "' . $message->message_type . ' message">';
 				echo "<p>";
-				echo 'by : '.$message->username;
+				echo 'by : ' . $message->username;
 				echo br();
-				echo 'type : '.$message->message_type;
+				echo 'type : ' . $message->message_type;
 				echo br();
-				echo 'message : '.br().$message->message;
+				echo 'message : ' . br() . $message->message;
 				echo br(2);
 				echo anchor('welcome/delete/' . $message->id, 'Delete');
 				echo "</p>";
