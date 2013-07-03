@@ -1,6 +1,4 @@
 <?php
-
-
 class test extends CI_Model
 {
 	const MESSAGE_TABLE = 'testTable';
@@ -31,5 +29,4 @@ class test extends CI_Model
 		$this->db->delete($this::MESSAGE_TABLE);
 	}
 }
-
 ?>
